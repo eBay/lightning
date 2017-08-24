@@ -26,10 +26,10 @@ final LightningClient client = new LightningClientBuilder().setEmbeddedMode(true
 
 // Create task List
 final List<Task> lightningTasks = new ArrayList<>();
-lightningTasks.add(new URLTask("http://www.google.com"));
+lightningTasks.add(new URLTask("http://www.ebay.com"));
 lightningTasks.add(new URLTask("http://www.stubhub.com"));
 lightningTasks.add(new URLTask("http://github.com/"));
-lightningTasks.add(new URLTask("http://www.ebay.com"));
+
 
 // Submit task List with LightningResponseCallback and Timeout
 final LightningResponseCallback callback = new LightningResponseCallback() {
@@ -69,7 +69,8 @@ LightningClient client = new LightningClientBuilder().addSeed("localhost").setCo
 //Create tasks List
 final List<Task> lightningTasks = new ArrayList<Task>();
 lightningTasks.add(new URLTask("http://www.ebay.com"));
-lightningTasks.add(new URLTask("http://www.google.com"));
+lightningTasks.add(new URLTask("http://www.stubhub.com"));
+lightningTasks.add(new URLTask("http://github.com/"));
 
 //Submit task List with LightningResponseCallback and Timeout
 LightningResponseCallback callback = new LightningResponseCallback() {
