@@ -1,3 +1,4 @@
+com.ebay.lightning.controller
 com.ebay.lightning.core
 com.ebay.lightning.core.async
 com.ebay.lightning.core.beans
@@ -10,3 +11,5 @@ com.ebay.lightning.core.services
 com.ebay.lightning.core.store
 com.ebay.lightning.core.utils
 com.ebay.lightning.core.workers
+com.ebay.lightning.test.config
+com.ebay.lightning.testing
