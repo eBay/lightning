@@ -1,0 +1,41 @@
+<h1>Modes of Operation</h1>
+
+<section id="embeddedMode" class="subgroup clearfix">
+  <h2>Embedded Mode</h2>
+  <div>
+    <p>In this mode, the Lightning-Core engine is started in memory. The client uses in memory core instance to execute URL.</p>
+    <h4>Pros</h4>
+    <ul>
+      <li>Bypass the REST API calls between Lightning client and core, thereby saving network latency and bandwidth.</li>
+      <li>Saves management of Lightning-core instances.</li>
+    </ul>
+    <h4>Cons</h4>
+    <ul>
+      <li>The core runs in memory thereby ends up consuming JVM resources of the host application.</li>
+      <li>The client cannot use more than one core.</li>
+      <li>Not scalable horizontally.</li>
+    </ul>
+    <h4>How to Use?</h4>
+    <p>Please refer this <a href="#runEmbeddedModeMaven">example</a>.</p>
+  </div>
+</section>
+
+<section id="standaloneMode" class="subgroup clearfix">
+  <h2>Standalone Mode</h2>
+  <div>
+    <p>In this mode, Lightning-Core instance is started as a standalone process. The client jar is added in the application that wants to use the lightning. The client is built from LightingClientBuilder and is used for various operations.</p>
+    <h4>Pros</h4>
+    <ul>
+      <li>Highly Scalable</li>
+      <li>Distributed operation</li>
+      <li>Fault Tolerant</li>
+    </ul>
+    <h4>Cons</h4>
+    <ul>
+      <li>Need to start and maintain one or more external Lightning-core process(es).</li>
+      <li>The lightning client communicates with the core through REST API, thereby costing some network latency and bandwidth.</li>
+    </ul>
+    <h4>How to Use?</h4>
+    <p>Please refer this <a href="#runStandaloneModeMaven">example</a>.</p>
+  </div>
+</section>

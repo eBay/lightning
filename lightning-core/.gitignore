@@ -1,0 +1,7 @@
+/logs/
+/log/
+systemConfig.txt
+/target/
+/.settings/
+*.project
+*.classpath

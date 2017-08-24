@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="./favicon.ico">
+  <title>Lightning</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="./ext/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./ext/css/font-awesome.min.css">
+  <link href="./css/lightning.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="row">
+    <!--Nav Bar -->
+    <nav class="col-xs-3 bs-docs-sidebar">
+      <ul id="sidebar" class="nav nav-stacked">
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#motivation">Motivation</a></li>
+        <li><a href="#benchmark">Execution Benchmark</a></li>
+        <li>
+           <a href="#getStarted">Getting Started Guide</a>
+           <ul class="nav nav-stacked">
+              <li><a href="#systemRequirement">Minimum Requirement</a></li>
+              <li><a href="#runEmbeddedModeMaven">Run in Embedded Mode</a></li>
+              <li><a href="#runStandaloneModeMaven">Run in Standalone Mode</a></li>
+              <li><a href="#jarExample">Run from JAR file</a></li>
+              <li><a href="#singleJvmExample">Run Core and Client in Single JVM</a></li>
+              <li><a href="#seperateJvmExample">Run Core and Client on Seperate JVM</a></li>
+          </ul>
+        </li>
+	<li><a href="#apiDocs">API JavaDoc</a></li>
+        <li>
+           <a href="#architecture">Architecture</a>
+           <ul class="nav nav-stacked">
+             <li><a href="#lightningCore">LightningCore</a></li>
+              <li><a href="#lightningClient">LighttingClient</a></li>
+           </ul>
+        </li>
+        <li>
+            <a href="#modes">Modes of Operation</a>
+            <ul class="nav nav-stacked">
+                <li><a href="#embeddedMode">Embedded Mode</a></li>
+                <li><a href="#standaloneMode">Standalone Mode</a></li>
+            </ul>
+        </li>
+        <li><a href="#whenToUse">When/How Lightning</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+        <li><a href="#contribute">Contribute to Lightning</a></li>
+      </ul>
+    </nav>
+
+    <!-- main content area -->
+    <div class="col-xs-9">
+
+      <section id="introduction" class="page-header">
+	<div align = "center">
+        <table>
+          <tr>
+            <td width="15%"><img alt="Lightning" src="./images/icon.png" width="60%"></td>
+            <td width="85%" text-align="left">
+              <h1>Lightning</h1>
+              <p style="font-size:1.3em"><i>Blazing Fast URL Execution Engine</i></p>
+            </td>
+          </tr>
+          <tr><td></td><td>
+            <a target="_blank" href="https://github.corp.ebay.com/Lightning/lightning"><img src="https://img.shields.io/badge/GitHub%20Repo-V1.0.0-blue.svg" alt="GitHub Repo"/></a>
+            <a target="_blank" href="./apidocs/core/index.html"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Core%20API%20JavaDoc"  alt="Core API JavaDoc"/></a>
+            <a target="_blank" href="./apidocs/client/index.html"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Client%20API%20JavaDoc"  alt="Client API JavaDoc"/></a>
+	    <img src="https://img.shields.io/badge/Core%20Code%20Coverage-80-green.svg" alt="Core Code Coverage: 80"/>
+            <img src="https://img.shields.io/badge/Client%20Code%20Coverage-90-green.svg" alt="Client Code Coverage: 90"/>
+          </tr></td>
+        </table>
+	</div>
+      </section>
+      <section id="features"></section>
+
+      <section id="motivation" class="page-header">
+        <h1>Motivation</h1>
+        <div>
+<p>We were looking for a system that can periodically hit an extremely large number of URLs with minimum latency. But there were no libraries or frameworks out there that could support our use case. This motivated us to build a system of our own, that could
+  be easily integratable, handle millions of URLs requests, execute with reliability and provide the results back via the simple client interface.</p>
+        </div>
+      </section>
+
+      <section id="benchmark" class="group"></section><hr>
+      <section id="getStarted" class="group"></section><hr>
+      <section id="architecture" class="group"></section><hr>
+      <section id="modes" class="group"></section><hr>
+      <section id="whenToUse" class="group"></section><hr>
+      <section id="faqs" class="group"></section><hr>
+      <section id="contribute" class="group"></section><hr>
+      <footer>
+        <p>Icons made by [<a href="http://www.flaticon.com/authors/freepik">freepik</a>,<a href="http://www.flaticon.com/authors/nikita-golubev">Nikita Golubev</a>,<a href="http://www.flaticon.com/authors/eucalyp">Eucalyp</a>,<a href="http://www.flaticon.com/authors/madebyoliver">Madebyoliver</a>,<a href="http://www.flaticon.com/authors/kirill-kazachek">Kirill Kazachek</a>,<a href="http://www.flaticon.com/authors/lucy-g">Lucy G</a>,<a href="http://www.flaticon.com/authors/darius-dan">Darius Dan</a>] from <a href="http://www.flaticon.com">www.flaticon.com</a></p>
+      </footer>
+      </div>
+
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	  <script src="./ext/jquery/js/jquery-3.1.1.min.js"></script>
+    <script src="./ext/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./ext/prettify/run_prettify.js"></script>
+    <script src="./js/lightning.js"></script>
+  </body>
+</html>

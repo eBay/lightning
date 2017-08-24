@@ -1,0 +1,37 @@
+<h1>FAQs</h1>
+<p>Please check FAQs if they have already answered. Else please feel free to reach out to us for any queries.</p>
+<p class="question" id="lightningMissingInRepo">1. Lightning-client or lighting client is not found in the maven repository?</p>
+<p>
+  This is how you can package and install lightning-client in the maven repository. These are two options. You can pick either one of the two.
+  <br><b>Option 1:</b> From Eclipse:
+  <br>Step 1: Clone the lightning Project using below command and import the
+  <br>Step 2: Import lightning-core and lightning-client projects into eclipse as maven project.
+  <br>Step 3: Run maven clean install on both the projects
+  <br><br><b>Option 2:</b> From Command Line
+  <br>Run these commands from the command line:
+</p>
+<pre class="prettyprint">
+>git clone git@github.corp.ebay.com:Lightning/lightning.git
+>cd lightning-core
+>mvn clean install assembly:single -DskipTests
+>cd ../lightning-client
+>mvn clean install -DskipTests
+</pre><br>
+<p class="question">2. How is Lightning different from other async url executor libraries like asynchttpclient, apache httpClient, etc?</p>
+<p>
+  Other libraries are great but they are not distributed. Their peak performance is limited to resources available on a single machine. Lightning solves this problem by being distributed URL execution engine. So for scalability just adding more capacity to the core cluster is required.
+</p><br>
+<p class="question">3. How do I tweak and control various execution parameters?</p>
+<p>
+  Use LightningClient to update SystemConfig or Submit RequestConfig along with each request. Please take a look at javaDoc of <a target="_blank" href="https://pages.github.corp.ebay.com/Lightning/lightning/apidocs/core/com/ebay/lightning/core/config/RequestConfig.html">RequestConfig</a> and <a href="https://pages.github.corp.ebay.com/Lightning/lightning/apidocs/core/com/ebay/lightning/core/config/SystemConfig.html" target="_blank">SystemConfig</a>.
+</p>
+<br>
+<p class="question">4. Does it supports any other languages than Java?</p>
+<p>
+  Lightning as of now supports only Java.
+</p>
+<br>
+<p class="question">5. I used lightning and URL execution was not fast?</p>
+<p>
+  Make sure you submit once giving all the url task instead calling submit for each urlTask. Lightning handles queuing and batching internally and it works best if few bulk requests are given instead of multiple small requests.
+</p>

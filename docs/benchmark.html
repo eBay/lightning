@@ -1,0 +1,17 @@
+<h1>Execution Benchmark</h1>
+<div>
+  <p>Lightning executed 400-500K URLs/min on a machine with 16GB RAM and 8 CPUs, which is really impressive as compared to any other URL execution framework in the open source environment we tested.
+  </p>
+</div><br>
+<h4>Comparative Study</h4>
+<div>
+  <p>Comparative study was done on similar projects.<br><br>
+    Async-http-client (previously known as Ning) did not suit our requirement due to the below limitations
+  </p>
+  <ul>
+    <li>Could not achieve the required speed.</li>
+    <li>Not horizontally scalable.</li>
+    <li>Not distributed.</li>
+  </ul>
+  <p>Though not used for batch execution, lightning uses Ning to make POST and PUT calls.
+</div>

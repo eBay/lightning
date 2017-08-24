@@ -1,0 +1,33 @@
+<h1>Architecture</h1>
+<div>
+  <p>Lightning comprises of two major component: Lightning-Core and Lightning-Client. Restful communication between client and core is abstracted from the end user. End user employs lightning client to perform all operations. Lightning core hosts a
+    bunch of RESTful services to support all client operations like request submission, result polling, config management, audit etc. For each operation, clients first resolve the most suitable core followed by the service call.</p>
+  <img src="images/architecture.png" alt="Architecture" />
+</div>
+
+<section id="lightningCore" class="subgroup clearfix">
+  <h2>Lightning-Core</h2>
+
+  <div>
+    <p>Lightning-Core is the URL execution engine. Prime Responsibilities of Core are as follows:</p>
+    <ul>
+      <li>Host a RESTful server for client communication.</li>
+      <li>Receive the URL execution requests from the client and return back the request id.</li>
+      <li>Enqueue the incoming requests and execute them in batches</li>
+      <li>Invoke the URLs are per the request and gather the result.</li>
+      <li>Gather request execution metrics for audit.</li>
+      <li>Respond back the execution result when polled by the Client for a given request id.</li>
+    </ul>
+    <p>There can be multiple cores in the cluster. Adding more core machine is easy. Just add it to the seed list in the client builder. They can be swapped in and out any time during system is in use which gives the scalability to the system.</p>
+    <img src="images/lightning_core.png" alt="Lightning Core" />
+  </div>
+</section>
+<br>
+
+<section id="lightningClient" class="subgroup clearfix">
+  <h2>Lightning-Client</h2>
+  <div>
+    <p>Lighting-Client is used by end user to send execution request, poll result, make system config changes, etc. It is used to submit the request to the core and poll the response back.It can also manage the multiple instances of core.</p>
+    <img src="images/lightning_client.png" alt="Lightning Client" />
+  </div>
+</section>

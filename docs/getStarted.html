@@ -1,0 +1,213 @@
+<h1>Getting Started Guide</h1>
+<p><i>(This guide presumes that the user has experience working with Java, Git, Maven projects, and IDE like eclipse.)</i></p>
+
+<section id="systemRequirement" class="subgroup clearfix">
+  <h2>Minimum system requirement</h2>
+  <ul>
+    <li>JDK 1.7 and above</li>
+    <li>Maven 3.0 and above</li>
+  </ul>
+</section>
+
+<section id="apiDocs" class="subgroup clearfix">
+  <h2>API Documentation</h2>
+  <ul>
+    <li><a href="./apidocs/core/index.html" target="_blank">Lightning Core</a></li>
+    <li><a href="./apidocs/client/index.html" target="_blank">Lightning Client</a></li>
+  </ul>
+</section>
+
+<section id="runEmbeddedModeMaven" class="subgroup clearfix">
+  <h2>Run in Embedded Mode in a Maven project.</h2>
+  <p><b>Step 1:</b> Add below dependency to the pom.xml of your project.</p>
+    <pre class="prettyprint">
+&lt;dependency&gt;
+        &lt;groupId&gt;com.ebay&lt;/groupId&gt;
+        &lt;artifactId&gt;lightning-client&lt;/artifactId&gt;
+        &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+    </pre>
+    <p>Note: If lightning-client is not found in maven repository then <a href="#lightningMissingInRepo">follow these steps to install one</a>.</p><br>
+    <p><b>Step 2:</b> Use client to submit URL request.</p>
+      <pre class="prettyprint">
+        //Build Lightning Client
+        final LightningClient client = new LightningClientBuilder().setEmbeddedMode(true).build();
+
+        //Submit request tasks
+        final List&lt;Task&gt; lightningTasks = new ArrayList&lt;Task&gt;();
+        lightningTasks.add(new URLTask("http://www.ebay.com"));
+        lightningTasks.add(new URLTask("http://www.google.com"));
+
+        //Submit with response callback
+        LightningResponseCallback callback = new LightningResponseCallback() {
+          @Override
+          public void onTimeout(LightningResponse response) {
+            log.info("Callback listener timed-out.");
+            log.info("No of requests completed: "+ response.getSuccessCount()+response.getFailedResponses().size());
+          }
+          @Override
+          public void onComplete(LightningResponse response) {
+            log.info("Request execution complete.");
+              int failureCount = response.getFailedResponses().size();
+              if (failureCount > 0) {
+                log.info("One or more requests failed.");
+              } else {
+                log.info("All results are successful with HTTP 200.");
+              }
+              log.info(response.prettyPrint());
+          }
+        };
+
+        client.submitWithCallback(tasks, callback, 2000);
+      </pre>
+</section>
+
+<section id="runStandaloneModeMaven" class="subgroup clearfix">
+  <h2>Run in Standalone Mode in a Maven project.</h2>
+  <p><b>Step 1:</b> Start lightning-core in standalone mode. In this example, we are running the core on port 8989, but you can choose a different port as well. Make sure to use the same port in the client.</p>
+    <pre class="prettyprint">
+>git clone git@github.corp.ebay.com:Lightning/lightning.git
+>cd lightning-core
+>mvn clean install assembly:single -DskipTests
+>cd target
+>java -jar target/Lightning-ProxyServices.jar server.port=8989
+    </pre>
+    <br>
+    <p><b>Step 2:</b> Add below dependency to the pom.xml of your project.</p>
+      <pre class="prettyprint">
+&lt;dependency&gt;
+        &lt;groupId&gt;com.ebay&lt;/groupId&gt;
+        &lt;artifactId&gt;lightning-client&lt;/artifactId&gt;
+        &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+      </pre>
+      <p>Note: If lightning-client is not found in maven repository then <a href="#lightningMissingInRepo">follow these steps to install one</a>.</p><br>
+      <p><b>Step 3:</b> Use client in your maven project to submit request.</p>
+        <pre class="prettyprint">
+          //Build client with the core instance running locally on port 8989
+          LightningClient client = new LightningClientBuilder().addSeed("localhost").setCorePort(8989).build();
+
+          List&lt;Task&gt; tasks = new ArrayList&lt;Task&gt;();
+          tasks.add(new URLTask("http://www.ebay.com/"));
+          tasks.add(new URLTask("http://www.google.com/"));
+
+          //Submit with response callback
+          LightningResponseCallback callback = new LightningResponseCallback() {
+      			@Override
+      			public void onTimeout(LightningResponse response) {
+      				log.info("Callback listener timed-out.");
+      				log.info("No of requests completed: "+ response.getSuccessCount()+response.getFailedResponses().size());
+      			}
+      			@Override
+      			public void onComplete(LightningResponse response) {
+      				log.info("Request execution complete.");
+      			    int failureCount = response.getFailedResponses().size();
+      			    if (failureCount > 0) {
+      			      log.info("One or more requests failed.");
+      			    } else {
+      			    	log.info("All results are successful with HTTP 200.");
+      			    }
+      			    log.info(response.prettyPrint());
+      			}
+      		};
+
+      		client.submitWithCallback(tasks, callback, 2000);
+        </pre>
+</section>
+
+<section id="moreExamples" class="subgroup clearfix">
+  <h2>So far so Good? Try Running Some More Examples.</h2>
+  <section id="jarExample" class="subsubgroup clearfix">
+    <h3>Run Example from Jar File</h3>
+    <p><b>Step 1:</b> Download Lightning-ExampleBundle.jar from the github <a href="https://github.corp.ebay.com/Lightning/lightning/tree/master/example/release" target="_blank">release</a>.<br></p>
+        <br>
+        <p><b>Step 2:</b> Start lightning core and client with a single command.</p>
+        <pre class="prettyprint">
+>java -jar Lightning-ExampleBundle.jar
+        </pre>
+        <p><b>Step 3:</b> Verify the Terminal Output:</p>
+        <table class="termTable">
+          <tr>
+            <td>
+              <p class="termOutput">
+                BatchReport [Id=0, [totalCount=success+connectFail+readWriteFail]=[5=5+0+0], [totalTime=connect+read-write+socketCreateTime+clnup]=[317=23+294+453+1] ,currentInetCacheSize=5]}, status=DONE, QueueTime(ms)=89, totalExecutionTimeInMillis=774]<br>
+13:07:48.225 [Thread-7] INFO  com.ebay.example.QuickRun - Complete response<br>
+13:07:48.225 [Thread-7] INFO  com.ebay.example.QuickRun - LightningResponse [Id=b71820d1-cc0e-4f0d-8132-40e529fe2eeb, success/total=5/5, status=DONE]
+                <br>
+              </p>
+            </td>
+          </tr>
+  <table>
+  </section>
+
+<section id="singleJvmExample" class="subsubgroup clearfix">
+  <h3>Run Example with Core and Client both in a single JVM</h3>
+  <p><b>Step 1:</b> Clone the lightning project locally to file system.</p>
+  <pre class="prettyprint">
+>git clone git@github.corp.ebay.com:Lightning/lightning.git
+        </pre>
+  <br>
+  <p><b>Step 2:</b> Go inside lightning-core and Compile the project.</p>
+  <pre class="prettyprint">
+>cd lightning-core
+>mvn clean install assembly:single -DskipTests
+        </pre>
+  <p><b>Step 3:</b> Go inside lightning-client and Compile the project.</p>
+  <pre class="prettyprint">
+>cd ../lightning-client
+>mvn clean install -DskipTests
+        </pre>
+  <p><b>Step 4:</b> Run the example class com.ebay.example.QuickRun</p>
+  <pre class="prettyprint">
+>cd ../example
+>mvn package
+>mvn exec:java -Dexec.mainClass="com.ebay.example.QuickRun"
+        </pre>
+  <p>The QuickRun performs two tasks.
+    <ul>
+      <li>Starts the lightning core instance on port 8989.</li>
+      <li>Submits a bunch of URL tasks (reads from sampleUrls.txt) to the core instance through lightning-client and poll the response.</li>
+    </ul>
+  </p>
+</section>
+
+<section id="seperateJvmExample" class="subsubgroup clearfix">
+  <h3>Run Examples with Core and Client on Separate JVM</h3>
+  <p><b>Step 1:</b> Clone the lightning project locally to file system.</p>
+  <pre class="prettyprint">
+>git clone git@github.corp.ebay.com:Lightning/lightning.git
+  </pre>
+  <br>
+  <p><b>Step 2:</b> Compile the lightning core project.</p>
+  <pre class="prettyprint">
+>cd lightning-core
+>mvn clean install assembly:single -DskipTests
+        </pre>
+  <p><b>Step 3:</b> Compile the lightning client project.</p>
+  <pre class="prettyprint">
+>cd ../lightning-client
+>mvn clean install -DskipTests
+        </pre>
+  <p><b>Step 4:</b> Start the Lightning Core instance on port 8989</p>
+  <pre class="prettyprint">
+$cd ../lightning-core
+$java -jar target/Lightning-ProxyServices.jar server.port=8989
+  </pre>
+  <p><b>Step 5:</b> Run Client Test and submit Request to Core</p>
+  <pre class="prettyprint">
+$cd ../lightning-client
+$mvn test -Dtest=EmbeddedLightningTester#testSubmit
+  </pre>
+  <p><b>Step 6:</b> Verify Output - indicating 190 of 500 tasks were successful:</p>
+  <table class="termTable">
+    <tr>
+      <td>
+        <p class="termOutput">
+          BatchReport [Id=0, [totalCount=success+connectFail+readWriteFail]=[2=1+1+0], [totalTime=connect+read-write+socketCreateTime+clnup]=[369=12+357+41+0] ,currentInetCacheSize=2]}, status=DONE, QueueTime(ms)=74, totalExecutionTimeInMillis=433]<br>
+          13:11:58.264 [Thread-4] INFO  c.e.l.client.EmbeddedLightningTester - LightningResponse [Id=d005847f-f0dc-40a3-9277-6fb3a90820b0, success/total=1/2, status=DONE]
+        </p>
+      </td>
+    </tr>
+<table>
+</section>
+</section>
