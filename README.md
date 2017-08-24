@@ -3,22 +3,22 @@
 </p>
 
 
-# [Lightning](https://lightning-ebay.github.io/)
-[Lightning](https://lightning-ebay.github.io/) is a Java based, [super fast](https://lightning-ebay.github.io/#benchmark), [multi-mode](https://lightning-ebay.github.io/#modes), [asynchronous, and distributed](https://lightning-ebay.github.io/#architecture) URL execution engine from eBay that delivers at scale.
+# [Lightning](https://ebay.github.io/lightning/)
+[Lightning](https://ebay.github.io/lightning/) is a Java based, [super fast](https://ebay.github.io/lightning/#benchmark), [multi-mode](https://ebay.github.io/lightning/#modes), [asynchronous, and distributed](https://ebay.github.io/lightning/#architecture) URL execution engine from eBay that delivers at scale.
 <br>
-Please refer [Detailed documentation](https://lightning-ebay.github.io/) for more information.
+Please refer [Detailed documentation](https://ebay.github.io/lightning/) for more information.
 
 
 [![Release](https://img.shields.io/badge/Release-1.0.0-blue.svg)](https://img.shields.io/badge/Release-1.0.0-blue.svg)
-<a href="https://lightning-ebay.github.io/" target="_blank"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Documentation" alt="Documentation"/></a>
-<a href="https://lightning-ebay.github.io/apidocs/core/index.html" target="_blank"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Core%20API%20JavaDoc" alt="Core API"/></a>
-<a href="https://lightning-ebay.github.io/apidocs/client/index.html" target="_blank"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Client%20API%20JavaDoc" alt="Client API"/></a>
+<a href="https://ebay.github.io/lightning/" target="_blank"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Documentation" alt="Documentation"/></a>
+<a href="https://ebay.github.io/lightning/apidocs/core/index.html" target="_blank"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Core%20API%20JavaDoc" alt="Core API"/></a>
+<a href="https://ebay.github.io/lightning/apidocs/client/index.html" target="_blank"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Client%20API%20JavaDoc" alt="Client API"/></a>
 [![CoreCov](https://img.shields.io/badge/Core%20Code%20Coverage-80-green.svg)](https://img.shields.io/badge/Core%20Code%20Coverage-80-green.svg)
 [![ClientCov](https://img.shields.io/badge/Client%20Code%20Coverage-90-green.svg)](https://img.shields.io/badge/Client%20Code%20Coverage-90-green.svg)
 
 # Usage
 ## Run In Embedded Mode
-To configure lightning core as an embedded service within the application. <a href="https://lightning-ebay.github.io/#modes" target="_blank" >Click to Learn more about different Modes of Operation.</a>
+To configure lightning core as an embedded service within the application. <a href="https://ebay.github.io/lightning/#modes" target="_blank" >Click to Learn more about different Modes of Operation.</a>
 
 ```java
 // Build LightningClient in Embedded Mode
@@ -57,7 +57,7 @@ final LightningResponseCallback callback = new LightningResponseCallback() {
 
 client.submitWithCallback(lightningTasks, callback, 5000);
 ```
-<a href="https://lightning-ebay.github.io/#runEmbeddedModeMaven"  target="_blank"> Please find step-by-step here.</a>
+<a href="https://ebay.github.io/lightning/#runEmbeddedModeMaven"  target="_blank"> Please find step-by-step here.</a>
 
 ## Run In Standalone Mode
 To configure lightning core as an external service.
@@ -95,7 +95,7 @@ LightningResponseCallback callback = new LightningResponseCallback() {
 };
 client.submitWithCallback(tasks, callback, 5000);
 ```
-<a href="https://lightning-ebay.github.io/#runStandaloneModeMaven"  target="_blank"> Please find step-by-step here.</a>
+<a href="https://ebay.github.io/lightning/#runStandaloneModeMaven"  target="_blank"> Please find step-by-step here.</a>
 # Changelog
 
 See [CHANGELOG.md](CHANGELOG.md)
