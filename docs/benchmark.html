@@ -6,12 +6,11 @@
 <h4>Comparative Study</h4>
 <div>
   <p>Comparative study was done on similar projects.<br><br>
-    Async-http-client (previously known as Ning) did not suit our requirement due to the below limitations
+    Async-http-client did not suit our requirement due to the below limitations
   </p>
   <ul>
-    <li>Could not achieve the required speed.</li>
+    <li>Could not achieve the required throughput if 5 million GET calls under a minute.</li>
     <li>Not horizontally scalable.</li>
     <li>Not distributed.</li>
   </ul>
-  <p>Though not used for batch execution, lightning uses Ning to make POST and PUT calls.
 </div>
