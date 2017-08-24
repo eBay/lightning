@@ -21,20 +21,19 @@ public class QuickRun {
 
 	private static final Logger log = Logger.getLogger(QuickRun.class);
 	private static int port = 8989;
-	
-	public static void main(String[] args) throws Exception{
+
+	public static void main(String[] args) throws Exception {
 		startLightningCore();
 		startLightningClient();
 		System.exit(0);
 	}
-	
-	private static void startLightningCore(){
-		LightningCoreMain.main("server.port="+port);
-		log.info("Started Lightning core on port "+ port);
+
+	private static void startLightningCore() {
+		LightningCoreMain.main("server.port=" + port);
+		log.info("Started Lightning core on port " + port);
 	}
 
-	
-	private static void startLightningClient() throws Exception{
+	private static void startLightningClient() throws Exception {
 		LightningClient client = new LightningClientBuilder().addSeed("localhost").setCorePort(port).build();
 
 		int taskCount = 5;
@@ -44,18 +43,20 @@ public class QuickRun {
 			@Override
 			public void onTimeout(LightningResponse response) {
 				log.info("Callback listener timed-out.");
-				log.info("No of requests completed: "+ response.getSuccessCount()+response.getFailedResponses().size());
+				log.info("No of requests completed: " + response.getSuccessCount()
+						+ response.getFailedResponses().size());
 			}
+
 			@Override
 			public void onComplete(LightningResponse response) {
 				log.info("Request execution complete.");
-			    int failureCount = response.getFailedResponses().size();
-			    if (failureCount > 0) {
-			      log.info("One or more requests failed.");
-			    } else {
-			    	log.info("All results are successful with HTTP 200.");
-			    }
-			    log.info(response.prettyPrint());
+				int failureCount = response.getFailedResponses().size();
+				if (failureCount > 0) {
+					log.info("One or more requests failed.");
+				} else {
+					log.info("All results are successful with HTTP 200.");
+				}
+				log.info(response.prettyPrint());
 			}
 		};
 		client.submitWithCallback(tasks, callback, 2000);
@@ -70,25 +71,20 @@ public class QuickRun {
 			String line = null;
 			System.out.println("Started Reading file");
 			while ((line = reader.readLine()) != null && tasks.size() < taskCount) {
-				try {
-					tasks.add(new URLTask(line));
-				} catch (URISyntaxException e) {
-					log.warn("Invalid URL: "+line);
-				}
+				tasks.add(new URLTask(line));
 			}
 		} catch (Exception e) {
-			log.error("Error reading stream",e);
+			log.error("Error reading stream", e);
 		} finally {
 			if (reader != null) {
 				try {
 					reader.close();
 				} catch (IOException e) {
-					log.error("Error closing stream",e);
+					log.error("Error closing stream", e);
 				}
 			}
 		}
 		return tasks;
 	}
-
 
 }

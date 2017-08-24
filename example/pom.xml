@@ -8,7 +8,7 @@
 		<dependency>
 			<groupId>com.ebay</groupId>
 			<artifactId>lightning-client</artifactId>
-			<version>1.0.0</version>
+			<version>0.9.0</version>
 		</dependency>
 	</dependencies>
 	<build>
