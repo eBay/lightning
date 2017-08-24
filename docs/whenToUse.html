@@ -1,12 +1,10 @@
 <h1>When to use Lightning and How?</h1>
   <ul>
-    <li>Lightning can be used to monitor your entire infrastructure like Database servers, Hadoop Nodes, Application Servers and Load balancers etc. Lightning works both on HTTP and HTTPS, providing you flexibility to use based on your infrastructure needs.</li>
-    <li>Lightning can also be used to purge the contents across your cloud infrastructure handled by RESTful services.</li>
-    <li>Lightning can also be used in Virtual Reality applications, that require frequent bulky URL execution at the server side.</li>
-    <li>Lightning can be used as a client-server model, with full flexibility of embedding client in your application and to use core at your server side. Lightning core needs to be running on your server before the lightning client makes any request. Detailed instructions are provided in Lightning Core and Lightning Client.</li>
+    <li>Lightning can be used in monitoring application's health and availability.</li>
   </ul>
 <br>
-<h4>When not to use</h4>
+<h4>When <b>NOT</b> to use</h4>
 <ul>
-  <li>Execution of couple of hundred URLs or less number of URLs. Lightning is optimized to handle bulk request therefore execution of few hundres urls would not seem that fast.</li>
+  <li>Lightning only supports HTTP/HEAD in the current version. So please do not consider Lighting in case you want to hit HTTPS or other HTTP verbs like GET, PUT, POST, DELETE.</li>
+  <li>Lightning might not be best suited for small number of URLs execution(few hundred or less). Lightning is optimized to handle bulk request therefore execution of few hundres urls would not give you much performance gain.</li>
 </ul>
