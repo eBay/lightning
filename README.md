@@ -9,7 +9,7 @@
 Please refer [Detailed documentation](https://ebay.github.io/lightning/) for more information.
 
 
-[![Release](https://img.shields.io/badge/Release-1.0.0-blue.svg)](https://img.shields.io/badge/Release-1.0.0-blue.svg)
+[![Release](https://img.shields.io/badge/Release-0.9.0-blue.svg)](https://img.shields.io/badge/Release-0.9.0-blue.svg)
 <a href="https://ebay.github.io/lightning/" target="_blank"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Documentation" alt="Documentation"/></a>
 <a href="https://ebay.github.io/lightning/apidocs/core/index.html" target="_blank"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Core%20API%20JavaDoc" alt="Core API"/></a>
 <a href="https://ebay.github.io/lightning/apidocs/client/index.html" target="_blank"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Client%20API%20JavaDoc" alt="Client API"/></a>
