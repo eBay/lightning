@@ -15,4 +15,14 @@ $("#sidebar").affix({
 
 $(document).ready(function(){
     $("body").scrollspy({target: ".bs-docs-sidebar", offset:10});
+	
+	var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+	var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer, Inc/.test(navigator.vendor);
+	if (window.location.hash && (isChrome || isSafari)) {
+		setTimeout(function () {
+			var hash = window.location.hash;
+			window.location.hash = "";
+			window.location.hash = hash;
+		}, 300);
+	}
 });
