@@ -66,11 +66,11 @@
   <h2>Run in Standalone Mode in a Maven project.</h2>
   <p><b>Step 1:</b> Start lightning-core in standalone mode. In this example, we are running the core on port 8989, but you can choose a different port as well. Make sure to use the same port in the client.</p>
     <pre class="prettyprint">
->git clone git@github.com:eBay/lightning.git
->cd lightning-core
+>git clone https://github.com/eBay/lightning.git
+>cd lightning/lightning-core
 >mvn clean install assembly:single -DskipTests
 >cd target
->java -jar target/Lightning-ProxyServices.jar server.port=8989
+>java -jar target/lightning-core-{version}-bundled.jar server.port=8989
     </pre>
     <br>
     <p><b>Step 2:</b> Add below dependency to the pom.xml of your project.</p>
