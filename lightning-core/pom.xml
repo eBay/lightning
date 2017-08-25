@@ -1,10 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>lightning-core</artifactId>
-	<version>0.9.0</version>
+	<artifactId>${applicationName}</artifactId>
+	<version>${applicationVersion}</version>
 	<properties>
 		<applicationName>lightning-core</applicationName>
+		<applicationVersion>0.9.0</applicationVersion>
 		<spring.framework.version>4.0.3.RELEASE</spring.framework.version>
 		<spring.mock.version>2.0.8</spring.mock.version>
 		<tomcat.version>7.0.53</tomcat.version>
@@ -133,7 +134,7 @@
 	</dependencies>
 	<!-- Apache Commons Upload -->
 	<build>
-		<finalName>lightning-core</finalName>
+		<finalName>${applicationName}-${applicationVersion}</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -192,7 +193,7 @@
 					<descriptors>
 						<descriptor>src/main/assembly/src.xml</descriptor>
 					</descriptors>
-					<finalName>Lightning</finalName>
+					<finalName>${applicationName}-${applicationVersion}</finalName>
 				</configuration>
 			</plugin>
 		</plugins>
