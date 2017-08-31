@@ -1,8 +1,30 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>${applicationName}</artifactId>
-	<version>${applicationVersion}</version>
+	<artifactId>lightning-core</artifactId>
+	<version>0.9.0</version>
+	<name>lightning-core</name>
+	<description>Core module of lightning, a java based, distributed, super fast, asynchronous, URL execution engine. More information at https://ebay.github.io/lightning</description>
+	<url>https://ebay.github.io/lightning</url>
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<name>Shankar Shukla</name>
+			<email>shashukla@ebay.com</email>
+			<organization>eBay Inc.</organization>
+			<organizationUrl>http://www.ebay.com</organizationUrl>
+		</developer>
+	</developers>
+	<scm>
+		<connection>https://github.com/eBay/lightning.git</connection>
+		<developerConnection>scm:git:ssh://github.com:eBay/lightning.git</developerConnection>
+		<url>https://github.com/eBay/lightning/tree/master/lightning-core</url>
+	</scm>
 	<properties>
 		<applicationName>lightning-core</applicationName>
 		<applicationVersion>0.9.0</applicationVersion>
@@ -173,10 +195,8 @@
 					</execution>
 				</executions>
 			</plugin>
-			
-			<!-- 
-			   Creating Assembly for Proxy Services
-			 -->
+
+			<!-- Creating Assembly for Proxy Services -->
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<!-- For this plugin use this goal -> clean compile assembly:single -->

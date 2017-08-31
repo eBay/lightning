@@ -2,8 +2,30 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ebay</groupId>
-	<artifactId>${applicationName}</artifactId>
-	<version>${applicationVersion}</version>
+	<artifactId>lightning-client</artifactId>
+	<version>0.9.0</version>
+	<name>lightning-client</name>
+	<description>Client module of lightning, a java based, distributed, super fast, asynchronous, URL execution engine. More information at https://ebay.github.io/lightning</description>
+	<url>https://ebay.github.io/lightning</url>
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<name>Shankar Shukla</name>
+			<email>shashukla@ebay.com</email>
+			<organization>eBay Inc.</organization>
+			<organizationUrl>http://www.ebay.com</organizationUrl>
+		</developer>
+	</developers>
+	<scm>
+		<connection>https://github.com/eBay/lightning.git</connection>
+		<developerConnection>scm:git:ssh://github.com:eBay/lightning.git</developerConnection>
+		<url>https://github.com/eBay/lightning/tree/master/lightning-client</url>
+	</scm>
 	<properties>
 		<applicationName>lightning-client</applicationName>
 		<applicationVersion>0.9.0</applicationVersion>
