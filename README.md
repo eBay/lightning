@@ -103,7 +103,7 @@ See [CHANGELOG.md](CHANGELOG.md)
 
 # Contributors
 
-Lightning is served to you by [Shankar Shukla](https://github.com/shankarshukla) and Site Engineering Tools Team(Ananth, [Prabhu Pandurangan](https://github.com/prabhurangan), [Pragadesh](https://github.com/Pragadesh)) at eBay Inc. We would like to give special thanks to our Director Sham Kalwit for his vision, valuable guidance and encouragement.
+Lightning is served to you by [Shankar Shukla](https://github.com/shankarshukla) and Site Engineering Tools Team([Ananth](https://github.com/ananthchelladurai), [Prabhu Pandurangan](https://github.com/prabhurangan), [Pragadesh](https://github.com/Pragadesh)) at eBay Inc. We would like to give special thanks to our Director Sham Kalwit for his vision, valuable guidance and encouragement.
 
 # License
 
